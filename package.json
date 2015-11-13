@@ -1,6 +1,6 @@
 {
-  "name": "lone-ranger",
-  "version": "0.1.2",
+  "name": "p2",
+  "version": "0.0.2",
   "description": "",
   "main": "server/server.js",
   "dependencies": {

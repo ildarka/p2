@@ -1,1 +1,0 @@
-node generatelic.js
