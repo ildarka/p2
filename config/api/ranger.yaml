@@ -1,0 +1,69 @@
+description: Ranger API
+
+Channel:
+  id: string
+  pid: string
+  lid: string
+  mode: string
+  on: string
+  output_format: string
+  tx_addr: string
+  tx_port: string
+  recv_port: string
+  out_ip: string
+  out_mask: string
+
+ChannelStats:
+  sync: string
+  recv_frames: string
+  recv_bytes: string
+  outp_packets: string
+  outp_bytes: string
+  proto_errors: string
+  outp_errors: string
+  sync_errors: string
+
+NetworkInterface:
+  ip: string
+  mac: string
+  mask: string
+  name: string
+  link: string
+  up: string
+
+methods:
+  GetNetworkInterfaces:
+    response: $ref NetworkInterface
+
+  GET_CONFIG:
+    params:
+    response: $ref Channel
+
+  GET_STATS:
+    params:
+    response: $ref ChannelStats
+  
+  RESET_STATS:
+    params:
+      
+  MODIFY_CHANNEL:
+    params: $ref Channel
+
+  SET_OUTPUT_INTERFACE:
+    params:
+      TO_REPLACE: boolean     
+
+  CLEAR_CONFIG:
+    params:
+      TO_REMOVE: boolean
+  
+  CREATE_CHANNEL:
+    params:
+      TO_REMOVE: boolean    
+  
+  DELETE_CHANNEL:
+    params:
+      TO_REMOVE: boolean  
+      
+
+  

@@ -1,0 +1,88 @@
+  <div class="dev">
+
+    <div style="margin-left:-10px">
+      <span class="tap" ng-class="{'-active': expand}"><a ng-click="expand=!expand">Expand all</a></span> 
+      <span class="tap" ng-class="{'-active': forms}"><a ng-click="forms=!forms">Show forms</a></span> 
+      <span style="margin-right:20px" class="tap" ng-class="{'-active': params}"><a ng-click="params=!params">Show params</a></span>
+      <button style="margin-right:20px" class="-rounded" ng-click="testAll()">Test all API</button>
+      <span class="allErrors" ng-show="_allErrors">Errors: {{_allErrors}}</span>
+      <span ng-show="_testAll && !_allErrors">All OK!</span>
+    </div>
+    
+    <article class="clearfix" ng-repeat="(model, vmodel) in config.api">
+      <h1>{{model | uppercase}}</h1>
+        
+      
+      
+      
+          <div class="method clearfix" ng-init="initMethod(model,method,vmethod)">
+            <div>
+              Custom method
+            </div>
+            
+            <div class="form" ng-show="forms">
+              <input type="text" ng-model="method" style="margin-bottom:5px; width:200px" placeholder="Custom method" />
+              <textarea style="height:6em" ng-model="formatedParams" auto-grow ng-class="{jsonerror: vmethod._jsonerror, shake: vmethod._shake}"></textarea>
+              <div>
+                <input type="submit" class="-small -blue" value="Отправить" ng-click="apicall(method,formatedParams,vmethod)" /> 
+
+                <span class="elapsed">
+                  <span ng-if="!vmethod._inprogress && vmethod._elapsed"><span ng-bind="vmethod._elapsed"></span> ms</span>
+                  <span ng-if="vmethod._inprogress"><i class="fa fa-spin fa-circle-o-notch"></i></span>
+                </span>
+              </div>
+              
+              <div ng-if="vmethod._result && !vmethod._error" class="result">
+                <pre class="json">{{vmethod._result}}</pre>
+              </div>
+              
+              <div ng-if="vmethod._error" class="error">
+                <pre class="json">Error: {{vmethod._error}}</pre>
+              </div>
+              
+            </div>
+          </div>
+          <!-- /custom -->
+      
+      
+      
+          <div class="method clearfix" ng-repeat="(method, vmethod) in vmodel.methods" ng-init="initMethod(model,method,vmethod)">
+            <div>
+              <a class="pseudo-link" ng-click="vmethod.expand = !vmethod.expand">{{vmethod.methodname}}</a>
+            </div>
+            
+            <div class="more" ng-show="expand || vmethod.expand">
+            <div class="form" ng-show="forms">
+              <textarea ng-if="vmethod.params" style="height:6em" ng-model="vmethod.formatedParams" auto-grow ng-class="{jsonerror: vmethod._jsonerror, shake: vmethod._shake}"></textarea>
+              <div>
+                <input type="submit" class="-small -blue" value="Отправить" ng-click="apicall(vmethod.methodname,vmethod.formatedParams,vmethod)" /> 
+
+                <span class="elapsed">
+                  <span ng-if="!vmethod._inprogress && vmethod._elapsed"><span ng-bind="vmethod._elapsed"></span> ms</span>
+                  <span ng-if="vmethod._inprogress"><i class="fa fa-spin fa-circle-o-notch"></i></span>
+                </span>
+              </div>
+              <div ng-if="vmethod._result && !vmethod._error" class="result">
+                <pre class="json">{{vmethod._result}}</pre>
+              </div>  
+              <div ng-if="vmethod._error" class="error">
+                <pre class="json">Error: {{vmethod._error}}</pre>
+              </div>  
+            </div>
+              
+
+            <div class="params" ng-show="params">
+              <pre class="request json" ng-if="vmethod.params">Request prototype:
+{{vmethod.params | JSON}}
+              </pre>
+              <pre class="request json" ng-if="vmethod.response" ng-class="{'no-top-padding': vmethod.params}">Response prototype:
+{{vmethod.response | JSON}}
+              </pre>
+
+            </div>
+                        
+          </div>  
+    </article>  
+
+    
+  </div>

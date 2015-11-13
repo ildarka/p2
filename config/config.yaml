@@ -1,0 +1,47 @@
+# Config
+
+title: Aggregator GUI
+description: 
+baseUri: http://localhost
+port: 3000
+wsport: 3001
+
+api: 
+  ranger: $ref api/ranger.yaml
+
+# This section will be removed from client-side config
+server:
+  connectionString: postgres://localhost/sgapp
+  expireToken: 600000
+
+errors:
+  INVALID_PARAMS:
+    code: -32602
+    message: Invalid params
+  SERVER_ERROR:
+    code: -32001
+    message: Ошибка на сервере
+  FORBIDDEN:
+    code: -32011
+    message: Недостаточно прав
+  UNAUTORIZED:
+    code: -32012
+    message: Пользователь неавторизован
+  LOGIN_FAILED:
+    code: -32021
+    message: Неправильный логин/пароль
+  DUPLICATE_USER:
+    code: -32022
+    message: Пользователь с таким именем уже существует
+
+routes:
+  /: 
+    template: modules/pegas/pegas.html
+    title: PEGAS 2
+    controller: pegasCtrl
+  /dev: 
+    template: modules/dev/dev.html
+    title: DEV
+    controller: devCtrl
+
+

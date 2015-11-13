@@ -1,0 +1,107 @@
+description: Basic users model
+
+roles:
+  user: Пользователь
+  superadmin: Администратор
+  
+  # Роли специфичные для агрегатора
+  aggregator.user: Доступ к агрегаторам
+  aggregator.admin: Администратор агрегаторов
+
+model:
+  description: Schema for user
+  properties:
+    id: number
+    date: date
+    name: string
+    password: string
+    role: string
+    state: 
+      enum:
+        - BAN
+        - ACTIVE
+        - NEW
+    
+defaults:
+  name: 1
+  password: 1
+  state: ACTIVE
+  role: superadmin
+    
+methods:
+  get:
+    response:
+      id: number
+      date: date
+      name: string
+      state: string
+      role: string
+
+    access: superadmin
+
+  login:
+    params:
+      name: 
+        type: string
+        minLength: 1
+      password:
+        type: string
+        minLength: 1
+    required:
+      - name
+      - password
+    response:
+      token: string
+      user: $ref model/properties
+    
+  logout:
+    params:
+      token: string
+
+  update:
+    params: $ref model/properties
+    access: superadmin
+
+  changePassword:
+    params:
+      id:
+        type: number
+        minLength: 1      
+      password:
+        type: string
+        minLength: 1      
+    required:
+      - id
+      - password
+
+  remove:
+    params:
+      id:
+        type: number
+        minLength: 1
+    required:
+      - id      
+    access: superadmin
+
+  switchState:
+    params:
+      id:
+        type: number
+        minLength: 1
+      state: $ref model/properties/state
+    required:
+      - id      
+      - state
+    access: superadmin
+
+  register:
+    params: 
+      name:
+        type: string
+        minLength: 1      
+      password:
+        type: string
+        minLength: 1       
+    required:
+      - name
+      - password

@@ -1,0 +1,138 @@
+.channels {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
+
+  
+    margin: 2em auto;
+    width: 100%;
+    max-width: 1400px;
+
+    h2 {
+        margin-top: 0; margin-bottom: 0.4em; }
+    .channel {
+        -webkit-flex: 1;
+        -webkit-flex-grow: 1;
+        -webkit-flex-basis: 280px;
+
+        flex: 1;
+        flex-grow: 1;
+        flex-basis: 280px;
+      
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1px;
+        padding: 12px 10px 10px 40px;
+        min-width: 220px;
+        min-height: 240px;
+        width: 20%;
+        border: solid 1px white;
+        font-size: 0.7em;
+
+        .roundbadge {
+            position: absolute; top: 10px; left: 10px; }
+
+        /*
+    &.sync {border-color: #0cb606;}
+    &.unsync {border-color: #f56565;}
+    */
+
+        &.selected {
+            min-height: 664px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+        .settings {
+            margin: 0.5em 0 1em -1em;
+            padding: 1em;
+            width: 280px;
+            background: #fbf8dc;
+
+            float1: right;
+
+            .field {
+                margin: 0 0 0.5em 0;
+                label {
+                    width: 130px; } }
+
+            input {
+                width: 80px; }
+            .port {
+                width: 40px; }
+
+            .submit {
+                margin: 1em 0 0 130px; } }
+
+        dl {
+            margin: 0; padding: 0; }
+
+        dl dd, dl dt {
+            margin: 0;
+            padding: 3px 0; }
+
+        dl dt {
+            float: left;
+            width: 150px; }
+
+        .error {
+            color: #ea0707; } } }
+
+.bottoms {
+    margin-top: 0;
+    padding: 3em 3em 7em 3em;
+    min-height: 40%;
+    background: #525759;color: #ddd;
+    font-size: 80%;
+
+    h2 {margin: 0 0 0.4em 0;
+        font-size: 130%;  }
+    input[type="text"] {width: 100px;
+        color: black; }
+
+    .shift-left {
+        margin-left: 66px; }
+    .submit {
+        margin-top: 1em; } }
+
+
+.interfaces {
+    margin-top: 1em; 
+}
+
+.interface {
+    float: left; min-width: 250px;min-height: 110px;
+    max-width: 300px;width: 20%; 
+    div {
+        margin-top: 4px; }
+    label {
+        display: inline-block; width: 70px; }
+    .inputs {
+        float: left; margin-right: 6px;width: 60px; height: 60px; font-weight: bold;font-size: 80%; 
+        div.roundbadge {
+            float: right; margin: 0 6px 6px 0; 
+        } 
+    } 
+}
+
+.roundbadge {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: #111;
+    color: #ccc;
+    text-align: center;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 20px; }
+
+.roundbadge.unsync {
+    background: #c00;
+    color: white; 
+}
+
+.roundbadge.sync {
+    background: #0cb606;
+    color: white; 
+}

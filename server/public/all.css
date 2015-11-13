@@ -1,0 +1,463 @@
+body {
+  font-family: Roboto, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  margin-bottom: .2em;
+}
+header {
+  padding: 0 15px 0 0;
+}
+header ul {
+  margin: 0 0 0 40px;
+  padding: 0;
+}
+header ul a {
+  color: white;
+}
+header li {
+  display: inline-block;
+  padding: 8px 10px 12px 10px;
+  list-style-type: none;
+}
+header li.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+header li.active a {
+  cursor: default;
+  text-decoration: none;
+  border: none;
+}
+header .me {
+  padding: 8px 1em;
+  coor: black;
+}
+hgroup {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.-nopaddings hgroup {
+  padding: 2em;
+}
+hgroup button {
+  position: absolute;
+  top: 36px;
+  left: 300px;
+}
+main {
+  width: 100%;
+}
+/* Angular styles */
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+[ng-click] {
+  cursor: pointer;
+}
+.ng-invalid.ng-touched {
+  border-width: 1px;
+  border-color: #c00;
+}
+.addform {
+  padding: 1em 2em;
+  border: solid 5px gold;
+}
+/* TODO: Move to SEGA2*/
+header {
+  width: inherit;
+}
+.hidden,
+input[type='submit'].hidden {
+  display: none;
+}
+.-relative {
+  position: relative;
+}
+.-absolute {
+  position: absolute;
+}
+hr {
+  height: 1px;
+  margin: 1em 0;
+  border: none;
+  border-top: solid #ccc 1px;
+  background: none;
+}
+.-pull-right {
+  float: right;
+}
+.-pull-left {
+  float: left;
+}
+.-m-right {
+  margin-right: 1em;
+}
+.-m-left {
+  margin-left: 1em;
+}
+.-m-top {
+  margin-top: 1em;
+}
+.-m-bottom {
+  margin-bottom: 1em;
+}
+.-m2-right {
+  margin-right: 2em;
+}
+.-m2-left {
+  margin-left: 2em;
+}
+.-m2-top {
+  margin-top: 2em;
+}
+.-m2-bottom {
+  margin-bottom: 2em;
+}
+.-disabled {
+  pointer-events: none;
+}
+.columns2 .column {
+  float: left;
+  width: 40%;
+  margin-right: 3em;
+}
+.columns3 .column {
+  float: left;
+  width: 30%;
+  margin-right: 3em;
+}
+.panel {
+  padding: 1em;
+  color: black;
+  border: solid 1px #e3e8c5;
+  border-radius: 2px;
+  background: #f6f8e9;
+}
+.-panel-white {
+  color: black;
+  border: solid 1px #d0d0d0;
+  background: white;
+}
+textarea {
+  border-color: #999;
+}
+
+
+.messageBox {
+  position: fixed;
+  z-index: 40;
+  width: 400px;
+  right: 30px;
+  top: 50px;
+  padding: 15px 30px 15px 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  background: white;
+}
+.messageBox.error {
+  color: #cc0000;
+}
+.messageBox .close {
+  float: right;
+  margin-right: -15px;
+}
+
+
+/* Shake animation */
+/* TODO: prefixes */
+@keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+  }
+  20% {
+    -webkit-transform: translateX(-3px);
+  }
+  40% {
+    -webkit-transform: translateX(4px);
+  }
+  60% {
+    -webkit-transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(3px);
+  }
+}
+@-webkit-keyframes shake {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+  }
+  20% {
+    -webkit-transform: translateX(-3px);
+  }
+  40% {
+    -webkit-transform: translateX(4px);
+  }
+  60% {
+    -webkit-transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(3px);
+  }
+}
+.shake {
+  animation: shake 300ms;
+  -webkit-animation: shake 300ms;
+}
+.shake-add-active {
+  animation: shake 300ms;
+  -webkit-animation: shake 300ms;
+}
+/*
+
+
+.shake-add, .shake-remove {
+  animation: none;
+  -webkit-animation: none;
+}
+
+
+.shake-add-active {
+ animation: shake 300ms;
+  -webkit-animation: shake 300ms;
+}
+*/
+
+
+.dev .method {
+  margin-bottom: 1em;
+}
+.dev .form {
+  margin: 0.5em 0 0 0;
+}
+.dev .form textarea {
+  margin-bottom: 0.5em;
+  width: 100%;
+  border-color: lavender;
+}
+.dev pre {
+  margin: 0;
+}
+.dev .json {
+  padding: 1em;
+  background: #ffffdd;
+  font-size: 80%;
+}
+.dev .params {
+  margin-top: 0.5em;
+}
+.dev .no-top-padding {
+  padding-top: 0;
+}
+.dev .elapsed {
+  margin-left: 1em;
+  color: #777;
+  font-size: 80%;
+}
+.dev .result .json {
+  background: #dcf6ff;
+  border: solid 1px #bde0ec;
+  margin-top: 0.5em;
+}
+.dev .error .json {
+  background: #fff2f2;
+  border: solid 1px #f8d1d1;
+  margin-top: 0.5em;
+  color: #cc0000;
+}
+.dev .allErrors {
+  color: #cc0000;
+}
+.dev h1 {
+  margin: 1em 0 0.5em 0;
+  font-size: 150%;
+}
+.dev textarea.jsonerror {
+  border-color: red;
+}
+
+
+.login .panel {
+  position: absolute;
+  right: 1.8em;
+  width: 300px;
+  z-index: 50;
+}
+
+
+.channels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  margin: 2em auto;
+  width: 100%;
+  max-width: 1400px;
+}
+.channels h2 {
+  margin-top: 0;
+  margin-bottom: 0.4em;
+}
+.channels .channel {
+  -webkit-flex: 1;
+  -webkit-flex-grow: 1;
+  -webkit-flex-basis: 280px;
+  flex: 1;
+  flex-grow: 1;
+  flex-basis: 280px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1px;
+  padding: 12px 10px 10px 40px;
+  min-width: 220px;
+  min-height: 240px;
+  width: 20%;
+  border: solid 1px white;
+  font-size: 0.7em;
+  /*
+    &.sync {border-color: #0cb606;}
+    &.unsync {border-color: #f56565;}
+    */
+}
+.channels .channel .roundbadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.channels .channel.selected {
+  min-height: 664px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.channels .channel .settings {
+  margin: 0.5em 0 1em -1em;
+  padding: 1em;
+  width: 280px;
+  background: #fbf8dc;
+  float1: right;
+}
+.channels .channel .settings .field {
+  margin: 0 0 0.5em 0;
+}
+.channels .channel .settings .field label {
+  width: 130px;
+}
+.channels .channel .settings input {
+  width: 80px;
+}
+.channels .channel .settings .port {
+  width: 40px;
+}
+.channels .channel .settings .submit {
+  margin: 1em 0 0 130px;
+}
+.channels .channel dl {
+  margin: 0;
+  padding: 0;
+}
+.channels .channel dl dd,
+.channels .channel dl dt {
+  margin: 0;
+  padding: 3px 0;
+}
+.channels .channel dl dt {
+  float: left;
+  width: 150px;
+}
+.channels .channel .error {
+  color: #ea0707;
+}
+.bottoms {
+  margin-top: 0;
+  padding: 3em 3em 7em 3em;
+  min-height: 40%;
+  background: #525759;
+  color: #ddd;
+  font-size: 80%;
+}
+.bottoms h2 {
+  margin: 0 0 0.4em 0;
+  font-size: 130%;
+}
+.bottoms input[type="text"] {
+  width: 100px;
+  color: black;
+}
+.bottoms .shift-left {
+  margin-left: 66px;
+}
+.bottoms .submit {
+  margin-top: 1em;
+}
+.interfaces {
+  margin-top: 1em;
+}
+.interface {
+  float: left;
+  min-width: 250px;
+  min-height: 110px;
+  max-width: 300px;
+  width: 20%;
+}
+.interface div {
+  margin-top: 4px;
+}
+.interface label {
+  display: inline-block;
+  width: 70px;
+}
+.interface .inputs {
+  float: left;
+  margin-right: 6px;
+  width: 60px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 80%;
+}
+.interface .inputs div.roundbadge {
+  float: right;
+  margin: 0 6px 6px 0;
+}
+.roundbadge {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 20px;
+}
+.roundbadge.unsync {
+  background: #c00;
+  color: white;
+}
+.roundbadge.sync {
+  background: #0cb606;
+  color: white;
+}
+
+
+.users ul {
+  margin: 1em 0 0 0;
+  padding: 0;
+}
+.users li {
+  margin-bottom: 0.6em;
+  list-style-type: none;
+}
+.users select.role {
+  width: 180px;
+}
+
+
+/*# sourceMappingURL=all.css.map */

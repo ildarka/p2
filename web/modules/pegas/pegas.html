@@ -1,0 +1,190 @@
+<div class="channels">
+
+    <div ng-repeat="channel in channels track by $index" ng-click="selectChannel(channel)" class="paper channel" ng-class="{'unsync': !channel.sync, 'selected': channel.num == selectedChannel }">
+      
+      <div class="roundbadge" ng-class="{'unsync': !channel.sync, 'sync': channel.sync}">{{channel.num}}</div>
+      
+      <!--h2>Канал № {{channel.num}}</h2-->
+      
+      <dl>
+        <dt>{{lang.channel.freq}}</dt>
+        <dd>{{channel.freq | freqformat}}</dd>
+        
+        <dt>{{lang.channel.symbolfreq}}</dt>
+        <dd>{{channel.symbolfreq | freqformat}}</dd>
+
+        <dt>{{lang.channel.standard}}</dt>
+        <dd>{{channel.standard}}</dd>
+        
+        <dt>{{lang.channel.level}}</dt>
+        <dd>{{channel.level}} {{lang.dbm}}</dd>
+                
+        <dt ng-class="{'error': !channel.sync}">{{lang.channel.noise}}</dt>
+        <dd ng-class="{'error': !channel.sync}"><div ng-if="channel.noise">{{channel.noise}} {{lang.decibell}}</div></dd>
+
+        <dt>{{lang.channel.ber}}</dt>
+        <dd>{{channel.ber}}</dd>
+      </dl>
+
+      <dl ng-if="channel.standard == 'DVB-S2'">
+        <dt>
+        {{lang.channel.acm}}: {{channel.acm}}
+        </dt>
+      
+        <dd>
+        {{lang.channel.modcode}}: {{channel.modcode}}
+        </dd>
+      </dl>
+
+      <dl ng-if="channel.standard == 'DVB-S2'">
+        <dt>
+        {{lang.worker}}
+        </dt>
+      
+        <dd>
+        {{lang.workers[channel.settings.worker]}}
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>{{lang.channel.outputNumber}}</dt>
+        <dd>
+          № {{channel.settings.outputNumber}}
+        </dd>
+      </dl>
+      
+    <!--
+     <dl>
+        <dt>{{lang.channel.receiver}}</dt>
+        <dd>
+          {{channel.settings.dstIp}}:{{channel.settings.dstPort}}
+        </dd>
+     </dl>
+
+     <dl ng-if="channel.settings.outputFormat == 'TRAIN'">
+       <dt>{{lang.channel.train}}</dt>
+       <dd>PID: {{channel.settings.pid}}, LID: {{channel.settings.lid}}</dd>
+     </dl>
+      -->
+     <dl>
+       <dt>{{lang.channel.output}}</dt>
+       <dd>{{channel.outputRate | rateformat}}</dd>
+     </dl>      
+
+      <div class="settings" ng-if="channel.num == selectedChannel" ng-click="$event.stopPropagation();">
+        <div class="field">
+          <label>{{lang.channel.freq}}</label>
+          <input type="text" ng-model="channel.freq" />
+        </div>
+        <div class="field">
+          <label>{{lang.channel.symbolfreq}}</label>
+          <input type="text" ng-model="channel.symbolfreq" />
+        </div>
+        <div class="field">
+          <label>{{lang.channel.standard}}</label>
+          <select>
+            <option>Авто</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Диапазон поиска</label>
+           <input type="text" ng-model="channel.symbolfreq" />
+        </div>
+        <div class="field">
+          <label>Инверсия спектра</label>
+          <select>
+            <option>Авто</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Алгоритм поиска</label>
+          <select>
+            <option>Авто</option>
+          </select>
+        </div>
+        
+        <hr />
+
+        <div class="field">
+          <label>Обработка</label>
+          <select>
+            <option>Без обработки</option>
+          </select>
+        </div>
+        
+        <div class="field">
+          <label>Выходной интерфейс</label>
+          <select>
+            <option>№ 1</option>
+          </select>
+        </div>
+        
+        <div class="field">
+          <label>Получатель</label>
+          <input type="text" ng-model="channel.settings.dstIP" /> : <input type="text" ng-model="channel.settings.dstPort" class="port"/>
+        </div>        
+
+        <div class="field">
+          <label>Формат</label>
+          <select>
+            <option>UDP</option>
+            <option>Паровоз</option>
+          </select>
+        </div>
+        
+        
+        <div class="submit">
+          <button class="button -rounded">Применить</button>
+        </div>
+        
+      </div>      
+     <div ng-if="channel.num == selectedChannel" style="margin-top:1em">
+       <a class="pseudo-link" ng-click="$event.stopPropagation();">Построить векторную диаграмму</a>
+     </div>
+
+  </div>
+  
+</div>
+
+<br clear="all" />
+
+<div class="bottoms">
+  <a class="pseudolink -pull-right pseudo-link" ng-click="outputSetup = !outputSetup">Настроить сетевые интерфейсы</a>
+  
+  <div class="shift-left">Default Gateway: 
+    <span ng-if="!outputSetup">{{outputs.gateway}}</span>
+    <span ng-if="outputSetup">
+      <input ng-model="outputs.gateway" type="text" />
+    </span>
+  </div>
+  
+  <div class="interfaces">
+    <div ng-repeat="interface in outputs.interfaces" class="interface" ng-init="num = $index + 1">
+      <div class="inputs">
+        <div ng-repeat="channel in channels track by $index" ng-if="channel.settings.outputNumber == num" class="roundbadge" ng-class="{'unsync': !channel.sync, 'sync': channel.sync}">
+          {{channel.num}}
+        </div>
+      </div>
+      
+      <h2>
+      Выход № {{num}}
+      </h2>
+      <label>IP-адрес:</label> <span ng-if="!outputSetup">{{interface.ip}}</span>
+        <span ng-if="outputSetup">
+          <input ng-model="interface.ip" type="text" />
+        </span>
+      <div>
+        <label>Маска:</label> <span ng-if="!outputSetup">{{interface.mask}}</span>
+        <span ng-if="outputSetup">
+          <input ng-model="interface.mask" type="text" />
+        </span>        
+      </div>
+    </div>
+  </div>
+  
+  <br clear="all" />
+  
+  <div class="shift-left submit" ng-if="outputSetup" >
+    <button class="button -green -rounded" ng-click="saveInterfaces()">Сохранить</button>
+  </div>
+</div>

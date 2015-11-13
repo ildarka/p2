@@ -1,0 +1,203 @@
+body
+{
+    font-family: Roboto, Helvetica, sans-serif; margin: 0; padding: 0;
+}
+
+h2
+{
+    margin-bottom: .2em;
+}
+
+// Header
+header
+{
+    padding: 0 15px 0 0;
+    ul
+    {
+        margin: 0 0 0 40px; padding: 0;
+    }
+    ul a
+    {
+        color: white;
+    }
+    li
+    {display: inline-block; padding: 8px 10px 12px 10px;
+
+        list-style-type: none;
+    }
+    li.active
+    {
+        background: rgba(255,255,255,.15);
+    }
+    li.active a
+    {
+        cursor: default; text-decoration: none; border: none;
+    }
+
+    .me
+    {
+        padding: 8px 1em; coor: black;
+    }
+}
+
+hgroup
+{
+    position: relative; margin: 0; padding: 0;
+}
+.-nopaddings hgroup
+{
+    padding: 2em;
+}
+
+hgroup button
+{
+    position: absolute;
+    top: 36px;
+    left: 300px;
+}
+
+main
+{
+    width: 100%;
+}
+
+/* Angular styles */
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak
+{
+    display: none !important;
+}
+[ng-click]
+{
+    cursor: pointer;
+}
+.ng-invalid.ng-touched
+{border-width: 1px;
+    border-color: #c00;
+}
+
+.addform
+{padding: 1em 2em;
+
+    border: solid 5px gold;
+}
+
+/* TODO: Move to SEGA2*/
+header
+{
+    width: inherit;
+}
+
+.hidden,
+input[type='submit'].hidden
+{
+    display: none;
+}
+.-relative
+{
+    position: relative;
+}
+.-absolute
+{
+    position: absolute;
+}
+
+hr
+{
+    height: 1px;
+    margin: 1em 0;
+
+    border: none;
+    border-top: solid #ccc 1px;
+    background: none;
+}
+
+.-pull-right
+{
+    float: right;
+}
+.-pull-left
+{
+    float: left;
+}
+
+.-m-right
+{
+    margin-right: 1em;
+}
+.-m-left
+{
+    margin-left: 1em;
+}
+.-m-top
+{
+    margin-top: 1em;
+}
+.-m-bottom
+{
+    margin-bottom: 1em;
+}
+
+.-m2-right
+{
+    margin-right: 2em;
+}
+.-m2-left
+{
+    margin-left: 2em;
+}
+.-m2-top
+{
+    margin-top: 2em;
+}
+.-m2-bottom
+{
+    margin-bottom: 2em;
+}
+
+.-disabled
+{
+    pointer-events: none;
+}
+
+.columns2
+{
+    .column
+    {
+        float: left; width: 40%; margin-right: 3em;
+    }
+}
+
+.columns3
+{
+    .column
+    {
+        float: left; width: 30%; margin-right: 3em;
+    }
+}
+
+.panel
+{
+    padding: 1em;
+
+    color: black;
+    border: solid 1px #e3e8c5;
+    border-radius: 2px;
+    background: #f6f8e9;
+}
+
+.-panel-white
+{
+    color: black;
+    border: solid 1px #d0d0d0;
+    background: white;
+}
+
+textarea
+{
+    border-color: #999;
+}
