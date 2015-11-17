@@ -1,3 +1,4 @@
+
 <div class="channels">
 
     <div ng-repeat="channel in channels track by $index" ng-click="selectChannel(channel)" class="paper channel" ng-class="{'unsync': !channel.sync, 'selected': channel.num == selectedChannel }">
@@ -5,7 +6,7 @@
       <div class="roundbadge" ng-class="{'unsync': !channel.sync, 'sync': channel.sync}">{{channel.num}}</div>
       
       <!--h2>Канал № {{channel.num}}</h2-->
-      
+   
       <dl>
         <dt>{{lang.channel.freq}}</dt>
         <dd>{{channel.freq | freqformat}}</dd>
@@ -52,6 +53,11 @@
           № {{channel.settings.outputNumber}}
         </dd>
       </dl>
+   
+      
+      
+      
+      
       
     <!--
      <dl>
@@ -107,7 +113,7 @@
 
         <div class="field">
           <label>Обработка</label>
-          <select>
+          <select class="worker">
             <option>Без обработки</option>
           </select>
         </div>
@@ -146,7 +152,6 @@
   
 </div>
 
-<br clear="all" />
 
 <div class="bottoms">
   <a class="pseudolink -pull-right pseudo-link" ng-click="outputSetup = !outputSetup">Настроить сетевые интерфейсы</a>
@@ -182,7 +187,7 @@
     </div>
   </div>
   
-  <br clear="all" />
+
   
   <div class="shift-left submit" ng-if="outputSetup" >
     <button class="button -green -rounded" ng-click="saveInterfaces()">Сохранить</button>

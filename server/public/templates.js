@@ -21,7 +21,8 @@ module.run(['$templateCache', function($templateCache) {
     '  <div ng-include="\'components/messageBox/messageBox.html\'"></div>\n' +
     '  \n' +
     '  <main>\n' +
-    '    \n' +
+    '\n' +
+    '    <h1 style="text-align:center; margin:1em 0 0 0">Папуас</h1>\n' +
     '    <article ng-view="" class="view"></article>\n' +
     '    \n' +
     '  </main>\n' +
@@ -207,6 +208,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('modules/pegas/pegas.html',
+    '\n' +
     '<div class="channels">\n' +
     '\n' +
     '    <div ng-repeat="channel in channels track by $index" ng-click="selectChannel(channel)" class="paper channel" ng-class="{\'unsync\': !channel.sync, \'selected\': channel.num == selectedChannel }">\n' +
@@ -214,7 +216,7 @@ module.run(['$templateCache', function($templateCache) {
     '      <div class="roundbadge" ng-class="{\'unsync\': !channel.sync, \'sync\': channel.sync}">{{channel.num}}</div>\n' +
     '      \n' +
     '      <!--h2>Канал № {{channel.num}}</h2-->\n' +
-    '      \n' +
+    '   \n' +
     '      <dl>\n' +
     '        <dt>{{lang.channel.freq}}</dt>\n' +
     '        <dd>{{channel.freq | freqformat}}</dd>\n' +
@@ -261,6 +263,11 @@ module.run(['$templateCache', function($templateCache) {
     '          № {{channel.settings.outputNumber}}\n' +
     '        </dd>\n' +
     '      </dl>\n' +
+    '   \n' +
+    '      \n' +
+    '      \n' +
+    '      \n' +
+    '      \n' +
     '      \n' +
     '    <!--\n' +
     '     <dl>\n' +
@@ -316,7 +323,7 @@ module.run(['$templateCache', function($templateCache) {
     '\n' +
     '        <div class="field">\n' +
     '          <label>Обработка</label>\n' +
-    '          <select>\n' +
+    '          <select class="worker">\n' +
     '            <option>Без обработки</option>\n' +
     '          </select>\n' +
     '        </div>\n' +
@@ -355,7 +362,6 @@ module.run(['$templateCache', function($templateCache) {
     '  \n' +
     '</div>\n' +
     '\n' +
-    '<br clear="all" />\n' +
     '\n' +
     '<div class="bottoms">\n' +
     '  <a class="pseudolink -pull-right pseudo-link" ng-click="outputSetup = !outputSetup">Настроить сетевые интерфейсы</a>\n' +
@@ -391,7 +397,7 @@ module.run(['$templateCache', function($templateCache) {
     '    </div>\n' +
     '  </div>\n' +
     '  \n' +
-    '  <br clear="all" />\n' +
+    '\n' +
     '  \n' +
     '  <div class="shift-left submit" ng-if="outputSetup" >\n' +
     '    <button class="button -green -rounded" ng-click="saveInterfaces()">Сохранить</button>\n' +
